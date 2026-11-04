@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: notes-api
+spec:
+  to:
+    kind: Service
+    name: notes-api
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
