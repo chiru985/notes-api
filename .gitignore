@@ -1,6 +1,5 @@
-oc
-oc.tarvenv/
+venv/
 __pycache__/
-
 oc
 oc.tar
+*.Zone.Identifier
