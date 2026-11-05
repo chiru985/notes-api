@@ -20,7 +20,6 @@ spec:
       containers:
         - name: notes-api
           image: chiru8531/notes-api:v2
-          command: ["sh", "-c", "exit 1"]
           ports:
             - containerPort: 8080
           resources:
