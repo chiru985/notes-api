@@ -1,0 +1,27 @@
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: notes-api-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: notes-api
+      rules:
+        - alert: PodRestartingTooMuch
+          expr: increase(kube_pod_container_status_restarts_total{namespace="default"}[10m]) > 2
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $labels.pod }} is restarting repeatedly"
+
+        - alert: NotesApiNoHealthyPods
+          expr: kube_deployment_status_replicas_available{namespace="default", deployment="notes-api"} < 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "notes-api has no healthy pods"
