@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: notes-api
-          image: chiru8531/notes-api:v1
+          image: chiru8531/notes-api:v2
           ports:
             - containerPort: 8080
           resources:
