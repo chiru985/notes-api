@@ -6,7 +6,7 @@ notes = []  # notes are stored in memory (simple on purpose)
 
 @app.route("/")
 def home():
-    return "Hello from my Notes API!"
+    return "Hello, version 2!"
 
 
 @app.route("/health")
